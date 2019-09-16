@@ -2,7 +2,7 @@ dnl  Process this file with autoconf to produce a configure script.
 
 
 dnl  ***************************************************************************
-dnl  A U T O C O N F   E N V I R O N M E N T
+dnl     A U T O C O N F   E N V I R O N M E N T
 dnl  ***************************************************************************
 
 
@@ -10,19 +10,21 @@ AC_PREREQ([2.69])
 
 AC_INIT([nautilus-__REPL_IDCASE_PACKAGENAME__], [__REPL_SHORT_PACKAGE_VERSION__], [__REPL_AUTHOR_EMAIL__])
 
-AM_INIT_AUTOMAKE([1.11])
+AC_CONFIG_MACRO_DIR([m4])
 
-AM_SILENT_RULES([yes])
+AC_CONFIG_AUX_DIR([build-aux])
 
 AC_CONFIG_SRCDIR([src/nautilus-__REPL_IDCASE_PACKAGENAME__.c])
 
 AC_CONFIG_HEADERS([config.h])
 
-AC_CONFIG_MACRO_DIR([m4])
-
 AC_CONFIG_FILES([Makefile
 src/Makefile
 po/Makefile.in])
+
+AM_INIT_AUTOMAKE([1.11])
+
+AM_SILENT_RULES([yes])
 
 AC_PROG_CC
 
@@ -34,7 +36,7 @@ AS_IF([test "x${HAVE_PKGCONFIG}" = xno], [AC_MSG_ERROR([you need to have pkgconf
 
 
 dnl  ***************************************************************************
-dnl  I N T E R N A T I O N A L I Z A T I O N
+dnl     I N T E R N A T I O N A L I Z A T I O N
 dnl  ***************************************************************************
 
 
@@ -50,7 +52,7 @@ AM_COND_IF([NLS_ENABLED],
 
 
 dnl  ***************************************************************************
-dnl  F I N A L I Z A T I O N
+dnl     F I N A L I Z A T I O N
 dnl  ***************************************************************************
 
 
