@@ -22,7 +22,7 @@ EXTRA_DIST = \
 	INSTALL \
 	NEWS \
 	README.md \
-	autogen.sh \
+	bootstrap \
 	package.json \
 	$(INTLTOOL_FILES)
 

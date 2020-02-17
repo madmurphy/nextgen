@@ -16,7 +16,7 @@ sha256sums=('__REPL_PACKAGE_SHA256SUMS__')
 prepare() {
 
 	cd "${srcdir}/${pkgname}-${pkgver}"
-	./autogen.sh --prefix=/usr
+	./bootstrap --prefix=/usr
 
 }
 

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #
 # nextgen.sh
 #
@@ -279,7 +279,7 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 	done
 
 
-	# Package author
+	# Author
 
 	_GOOD_ANSWER_=0
 	_TMPSTR_="${_NEW_PKGAUTH_}"
@@ -306,7 +306,7 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 	done
 
 
-	# Package author's e-mail address
+	# Author's e-mail address
 
 	_GOOD_ANSWER_=0
 
@@ -330,7 +330,7 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 	done
 
 
-	# Package author's public username
+	# Author's public username
 
 	_GOOD_ANSWER_=0
 
