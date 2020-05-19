@@ -1,0 +1,42 @@
+NExtGen
+=======
+
+_Nautilus Extension Generator_
+
+**NExtGen** is a Bash script that lets you easily set up a new extension
+project for GNOME's Nautilus file manager.
+
+All you have to do is to launch the `nextgen.sh` script and answer a few
+questions. For any issue, [drop me a message][1].
+
+Good luck! ;)
+
+
+Installation
+------------
+
+The `nextgen.sh` script does not need to be installed in order to function.
+However, if you wish to have a copy of it permanently installed in your
+machine, launch:
+
+``` sh
+./configure
+make install
+```
+
+If the `configure` script is missing you will need to generate it by launching
+`autoreconf -i` from the top level directory of the package (**GNU Autotools**
+is required).
+
+
+Free software
+-------------
+
+This program is free software. You can redistribute it and/or modify it under
+the terms of the GPL license version 3 or any later version. See [COPYING][2]
+for details.
+
+
+[1]: https://github.com/madmurphy/NExtGen/issues
+[2]: https://github.com/madmurphy/NExtGen/blob/master/COPYING
+
