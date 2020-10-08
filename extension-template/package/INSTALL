@@ -6,7 +6,10 @@ following common steps:
 
     ./configure
     make
-    make install
+    make install-strip
+
+If the `strip` utility is not available on your machine, use `make install`
+instead (it will produce larger binaries).
 
 If you need to customize the target directories, or otherwise adjust the build
 setting, use

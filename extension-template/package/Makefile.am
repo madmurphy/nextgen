@@ -12,7 +12,8 @@ dist_doc_DATA = \
 	README
 
 
-INTLTOOL_FILES = intltool-extract.in \
+INTLTOOL_FILES = \
+	intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in
 
@@ -44,13 +45,12 @@ else
 EXTRA_DIST += \
 	po
 
-
 endif
 
 
 # Remove doc directory on uninstall
 uninstall-local:
-	-rm -r $(docdir)
+	-rm -r '$(DESTDIR)$(docdir)'
 
 
 ACLOCAL_AMFLAGS = -I m4

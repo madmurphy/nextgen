@@ -8,7 +8,7 @@ dnl  ***************************************************************************
 
 AC_PREREQ([2.69])
 
-AC_INIT([nautilus-__REPL_IDCASE_PACKAGENAME__], [__REPL_SHORT_PACKAGE_VERSION__], [__REPL_AUTHOR_EMAIL__])
+AC_INIT([nautilus-__REPL_IDCASE_PACKAGENAME__], [__REPL_SHORT_PACKAGE_VERSION__], [__REPL_AUTHOR_EMAIL__], [nautilus-__REPL_IDCASE_PACKAGENAME__], [https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__])
 
 AC_CONFIG_MACRO_DIR([m4])
 

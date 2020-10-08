@@ -18,7 +18,7 @@ AM_CFLAGS = \
 nautilus_extensiondir = $(NAUTILUS_EXTENSION_DIR)
 
 nautilus_extension_LTLIBRARIES = \
-	libnautilus___REPL_LOWERCASE_PACKAGENAME__.la
+	libnautilus-__REPL_IDCASE_PACKAGENAME__.la
 
 libnautilus___REPL_LOWERCASE_PACKAGENAME___la_SOURCES = \
 	nautilus-__REPL_IDCASE_PACKAGENAME__.c

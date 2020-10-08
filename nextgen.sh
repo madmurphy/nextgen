@@ -27,12 +27,12 @@ PROJECTS_DIR=~/'Nautilus-Projects'
 DEFAULT_DESCRIPTION='(DESCRIPTION TO BE WRITTEN LATER)'
 
 # Regular expressions
-RE_DESCR_ALLOW='^[a-zA-Z0-9 _\-\.,:;!?/%&=+()]+$'
+RE_DESCR_ALLOW='^[-a-zA-Z0-9 _\.,:;!?/%&=+()]+$'
 RE_VERSION_ALLOW='^[0-9]+\.[0-9]+\.[0-9]+$'
 RE_AUTHOR_FORBID='[^a-zA-Z0-9 ]'
 # From https://stackoverflow.com/a/2138832
 RE_EMAIL_ALLOW="^[a-z0-9!#\$%&'*+/=?^_\`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_\`{|}~-]+)*@([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z0-9]([a-z0-9-]*[a-z0-9])?\$"
-RE_USERNAME_FORBID='[^a-zA-Z0-9_\-]'
+RE_USERNAME_FORBID='[^a-zA-Z0-9_-]'
 _RE_BLANK_='^\s*$'
 
 # Other constants
@@ -414,6 +414,7 @@ recursed '__REPL_SHORT_PACKAGE_VERSION__' "$(echo ${_NEW_PKGVER_} | sed 's/\.[0-
 recursed '__REPL_AUTHOR_NICKNAME__' "${_NEW_PKGUSR_}"
 recursed '__REPL_LONG_PACKAGE_VERSION__' "${_NEW_PKGVER_}"
 recursed '__REPL_PACKAGE_DESCRIPTION__' "${_NEW_PKGDESCR_}"
+recursed '__REPL_TITLE_UNDERLINE__' "$(for ((_ITER_=1; _ITER_<=${#_NEW_PKGNAME_}+9; _ITER_++)); do echo -n '='; done)"
 
 _PKGDIR_="${PROJECTS_DIR}/${_NEW_PKGNAME_}"
 

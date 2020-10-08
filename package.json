@@ -1,6 +1,6 @@
 {
 	"name": "NExtGen",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "A small bash script that lets you easily set up a new extension project for GNOME's Nautilus file manager",
 	"homepage": "https://github.com/madmurphy/NExtGen",
 	"author": "madmurphy333@gmail.com",
