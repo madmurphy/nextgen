@@ -2,20 +2,20 @@
 	"name": "NExtGen",
 	"version": "0.1.4",
 	"description": "A small bash script that lets you easily set up a new extension project for GNOME's Nautilus file manager",
-	"homepage": "https://github.com/madmurphy/NExtGen",
+	"homepage": "https://gitlab.gnome.org/madmurphy/nextgen",
 	"author": "madmurphy333@gmail.com",
 	"license": "GPL-3.0-or-later",
 	"main": "nextgen.sh",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/madmurphy/NExtGen.git"
+		"url": "https://gitlab.gnome.org/madmurphy/nextgen.git"
 	},
 	"dependencies": {
 		"bash": "*",
 		"libnautilus-extension": "*"
 	},
 	"bugs": {
-		"url": "https://github.com/madmurphy/NExtGen/issues",
+		"url": "https://gitlab.gnome.org/madmurphy/nextgen/issues",
 		"email" : "madmurphy333@gmail.com"
 	},
 	"keywords": [

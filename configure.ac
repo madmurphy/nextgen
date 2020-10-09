@@ -6,7 +6,7 @@ AC_INIT([NExtGen],
 		[[0-9]+\.[0-9]+\.[0-9]+], [\&]),
 	[madmurphy333@gmail.com],
 	[nextgen],
-	[https://github.com/madmurphy/nextgen/])
+	[https://gitlab.gnome.org/madmurphy/nextgen])
 
 AC_CONFIG_AUX_DIR([build-aux])
 
