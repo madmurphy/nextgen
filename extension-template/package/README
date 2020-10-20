@@ -4,12 +4,21 @@ __REPL_TITLE_UNDERLINE__
 __REPL_PACKAGE_DESCRIPTION__
 
 
+NExtGen
+-------
+
+This extension has been created using [NExtGen][1] Nautilus extension
+generator.
+
+
 Free software
 -------------
 
 This extension is free software. You can redistribute it and/or modify it under
-the terms of the GPL license version 3 or any later version. See [COPYING][1]
+the terms of the GPL license version 3 or any later version. See [COPYING][2]
 for details.
 
 
-[1]: COPYING
+  [1]: https://gitlab.gnome.org/madmurphy/nextgen
+  [2]: COPYING
+

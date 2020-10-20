@@ -2,8 +2,14 @@ Change Log
 ==========
 
 
-0.1.4
------
+## 0.1.5
+
+Changes:
+
+* Use `--disable-static` as the extension's default `configure` option
+
+
+## 0.1.4
 
 Changes:
 
@@ -11,32 +17,28 @@ Changes:
 * Use https://gitlab.gnome.org/madmurphy/nextgen as main repository
 
 
-0.1.3
------
+## 0.1.3
 
 Changes:
 
-* Adopted GNU Autotools for the script
+* Adopted GNU Autotools for installing the script
 
 
-0.1.2
------
+## 0.1.2
 
 Changes:
 
-* Updated build environment of extension template
+* Updated build environment of extension template (cont'd)
 
 
-0.1.1
------
+## 0.1.1
 
 Changes:
 
 * Updated build environment of extension template
 
 
-0.1.0
------
+## 0.1.0
 
 **NExtGen** has been published.
 

@@ -152,7 +152,7 @@ static GList * nautilus___REPL_LOWERCASE_PACKAGENAME___get_file_items (
 		menu_item,
 		"activate",
 		G_CALLBACK(nautilus___REPL_LOWERCASE_PACKAGENAME___helloworld),
-		provider
+		NULL /* or any custom user data */
 	);
 
 	g_object_set_data_full(

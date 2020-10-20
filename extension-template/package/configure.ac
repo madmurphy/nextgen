@@ -8,7 +8,11 @@ dnl  ***************************************************************************
 
 AC_PREREQ([2.69])
 
-AC_INIT([nautilus-__REPL_IDCASE_PACKAGENAME__], [__REPL_SHORT_PACKAGE_VERSION__], [__REPL_AUTHOR_EMAIL__], [nautilus-__REPL_IDCASE_PACKAGENAME__], [https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__])
+AC_INIT([nautilus-__REPL_IDCASE_PACKAGENAME__],
+	[__REPL_SHORT_PACKAGE_VERSION__],
+	[__REPL_AUTHOR_EMAIL__],
+	[nautilus-__REPL_IDCASE_PACKAGENAME__],
+	[https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__])
 
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -45,7 +49,7 @@ IT_PROG_INTLTOOL([0.35.0])
 AM_CONDITIONAL([NLS_ENABLED], [test "x${USE_NLS}" != xno])
 
 AM_COND_IF([NLS_ENABLED],
-	[AC_SUBST([GETTEXT_PACKAGE], AC_PACKAGE_NAME)
+	[AC_SUBST([GETTEXT_PACKAGE], AC_PACKAGE_TARNAME)
 	AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [GETTEXT package name])
 	AM_GLIB_GNU_GETTEXT
 	AM_GLIB_DEFINE_LOCALEDIR([NAUTILUS___REPL_UPPERCASE_PACKAGENAME___LOCALEDIR])])
@@ -58,7 +62,7 @@ dnl  ***************************************************************************
 
 AC_SUBST([NAUTILUS_EXTENSION_DIR], [$($PKG_CONFIG --variable=extensiondir libnautilus-extension)])
 
-LT_INIT
+LT_INIT([disable-static])
 
 AC_OUTPUT
 
