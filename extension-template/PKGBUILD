@@ -16,13 +16,14 @@ sha256sums=('__REPL_PACKAGE_SHA256SUMS__')
 prepare() {
 
 	cd "${srcdir}/${pkgname}-${pkgver}"
-	./bootstrap --prefix=/usr
+	./bootstrap --noconfigure
 
 }
 
 build() {
 
 	cd "${srcdir}/${pkgname}-${pkgver}"
+	./configure --prefix=/usr
 	make
 
 }

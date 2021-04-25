@@ -19,19 +19,19 @@ dist_exttempl_DATA = \
 
 pkgtempldir = $(exttempldir)/package
 dist_pkgtempl_DATA = \
-	extension-template/package/bootstrap \
 	extension-template/package/README \
 	extension-template/package/NEWS \
 	extension-template/package/ChangeLog \
 	extension-template/package/.editorconfig \
-	extension-template/package/ChangeLog.md \
 	extension-template/package/package.json \
 	extension-template/package/Makefile.am \
-	extension-template/package/README.md \
 	extension-template/package/INSTALL \
 	extension-template/package/AUTHORS \
 	extension-template/package/COPYING \
 	extension-template/package/configure.ac
+
+dist_pkgtempl_SCRIPTS = \
+	extension-template/package/bootstrap
 
 pkgtemplpodir = $(pkgtempldir)/po
 dist_pkgtemplpo_DATA = \
@@ -64,6 +64,10 @@ install-exec-hook:
 	$(MKDIR_P) '$(DESTDIR)$(bindir)' && rm -f \
 	'$(DESTDIR)$(bindir)/nextgen' && $(LN_S) \
 	'$(nextgendir)/nextgen.sh' '$(DESTDIR)$(bindir)/nextgen'
+
+install-data-hook:
+	(cd '$(DESTDIR)$(pkgtempldir)' && $(LN_S) 'README' \
+	'README.md' && $(LN_S) 'ChangeLog' 'ChangeLog.md');
 
 uninstall-local:
 	-rm -rf '$(DESTDIR)$(nextgendir)' '$(DESTDIR)$(docdir)';
