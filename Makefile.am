@@ -6,14 +6,13 @@ dist_doc_DATA = \
 	COPYING \
 	README
 
-nextgendir = $(datadir)/@PACKAGE_TARNAME@
-dist_nextgen_DATA = \
+dist_pkgdata_DATA = \
 	VERSION
 
-dist_nextgen_SCRIPTS = \
+dist_pkgdata_SCRIPTS = \
 	nextgen.sh
 
-exttempldir = $(nextgendir)/extension-template
+exttempldir = $(pkgdatadir)/extension-template
 dist_exttempl_DATA = \
 	extension-template/PKGBUILD
 
@@ -63,14 +62,14 @@ _bootstrapclean_files_ = \
 install-exec-hook:
 	$(MKDIR_P) '$(DESTDIR)$(bindir)' && rm -f \
 	'$(DESTDIR)$(bindir)/nextgen' && $(LN_S) \
-	'$(nextgendir)/nextgen.sh' '$(DESTDIR)$(bindir)/nextgen'
+	'$(pkgdatadir)/nextgen.sh' '$(DESTDIR)$(bindir)/nextgen'
 
 install-data-hook:
 	(cd '$(DESTDIR)$(pkgtempldir)' && $(LN_S) 'README' \
 	'README.md' && $(LN_S) 'ChangeLog' 'ChangeLog.md');
 
 uninstall-local:
-	-rm -rf '$(DESTDIR)$(nextgendir)' '$(DESTDIR)$(docdir)';
+	-rm -rf '$(DESTDIR)$(pkgdatadir)' '$(DESTDIR)$(docdir)';
 	-rm -f '$(DESTDIR)$(bindir)/nextgen'
 
 

@@ -2,22 +2,24 @@
 
 /*\
 |*|
-|*|	nautilus-__REPL_IDCASE_PACKAGENAME__.c
+|*| nautilus-__REPL_IDCASE_PACKAGENAME__.c
 |*|
-|*|	Copyright (C) __REPL_PACKAGE_YEAR__ __REPL_AUTHOR_NAME__ <__REPL_AUTHOR_EMAIL__>
+|*| https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__
 |*|
-|*|	nautilus-__REPL_IDCASE_PACKAGENAME__ is free software: you can redistribute it and/or modify it
-|*|	under the terms of the GNU General Public License as published by the
-|*|	Free Software Foundation, either version 3 of the License, or
-|*|	(at your option) any later version.
+|*| Copyright (C) __REPL_PACKAGE_YEAR__ __REPL_AUTHOR_NAME__ <__REPL_AUTHOR_EMAIL__>
 |*|
-|*|	nautilus-__REPL_IDCASE_PACKAGENAME__ is distributed in the hope that it will be useful, but
-|*|	WITHOUT ANY WARRANTY; without even the implied warranty of
-|*|	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-|*|	See the GNU General Public License for more details.
+|*| **nautilus-__REPL_IDCASE_PACKAGENAME__** is free software: you can redistribute it and/or
+|*| modify it under the terms of the GNU General Public License as published by
+|*| the Free Software Foundation, either version 3 of the License, or (at your
+|*| option) any later version.
 |*|
-|*|	You should have received a copy of the GNU General Public License along
-|*|	with this program. If not, see <http://www.gnu.org/licenses/>.
+|*| **nautilus-__REPL_IDCASE_PACKAGENAME__** is distributed in the hope that it will be useful,
+|*| but WITHOUT ANY WARRANTY; without even the implied warranty of
+|*| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+|*| Public License for more details.
+|*|
+|*| You should have received a copy of the GNU General Public License along
+|*| with this program. If not, see <http://www.gnu.org/licenses/>.
 |*|
 \*/
 
@@ -32,17 +34,20 @@
 
 #ifdef ENABLE_NLS
 #include <glib/gi18n-lib.h>
+#define I18N_INIT() \
+	bindtextdomain(GETTEXT_PACKAGE, NAUTILUS___REPL_UPPERCASE_PACKAGENAME___LOCALEDIR);
 #else
-#define _(STRING) STRING
+#define _(STRING) ((char * ) STRING)
+#define I18N_INIT()
 #endif
 
 
 
-/*
-
-	GLOBAL TYPES AND VARIABLES
-
-*/
+/*\
+|*|
+|*|	GLOBAL TYPES AND VARIABLES
+|*|
+\*/
 
 
 typedef struct {
@@ -59,16 +64,16 @@ static GObjectClass * parent_class;
 
 
 
-/*
-
-	FUNCTIONS
-
-*/
+/*\
+|*|
+|*|	FUNCTIONS
+|*|
+\*/
 
 
 static void nautilus___REPL_LOWERCASE_PACKAGENAME___helloworld (
 	NautilusMenuItem * const menu_item,
-	gpointer user_data
+	gpointer const user_data
 ) {
 
 	/*
@@ -78,7 +83,10 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___helloworld (
 
 	*/
 
-	GList * const file_selection = g_object_get_data((GObject *) menu_item, "nautilus___REPL_LOWERCASE_PACKAGENAME___files");
+	GList * const file_selection = g_object_get_data(
+		(GObject *) menu_item,
+		"nautilus___REPL_LOWERCASE_PACKAGENAME___files"
+	);
 
 	for (GList * iter = file_selection; iter; iter = iter->next) {
 
@@ -86,23 +94,6 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___helloworld (
 		printf(_("Doing something with %s ...\n"), nautilus_file_info_get_uri(NAUTILUS_FILE_INFO(iter->data)));
 
 	}
-
-}
-
-
-GType nautilus___REPL_LOWERCASE_PACKAGENAME___get_type (void) {
-
-	return nautilus___REPL_LOWERCASE_PACKAGENAME___type;
-
-}
-
-
-static void nautilus___REPL_LOWERCASE_PACKAGENAME___class_init (
-	Nautilus__REPL_TITLECASE_PACKAGENAME__Class * const nautilus___REPL_LOWERCASE_PACKAGENAME___class,
-	gpointer class_data
-) {
-
-	parent_class = g_type_class_peek_parent(nautilus___REPL_LOWERCASE_PACKAGENAME___class);
 
 }
 
@@ -156,7 +147,8 @@ static GList * nautilus___REPL_LOWERCASE_PACKAGENAME___get_file_items (
 	);
 
 	g_object_set_data_full(
-		(GObject *) menu_item, "nautilus___REPL_LOWERCASE_PACKAGENAME___files",
+		(GObject *) menu_item,
+		"nautilus___REPL_LOWERCASE_PACKAGENAME___files",
 		nautilus_file_info_list_copy(file_selection),
 		(GDestroyNotify) nautilus_file_info_list_free
 	);
@@ -168,7 +160,7 @@ static GList * nautilus___REPL_LOWERCASE_PACKAGENAME___get_file_items (
 
 static void nautilus___REPL_LOWERCASE_PACKAGENAME___menu_provider_iface_init (
 	NautilusMenuProviderIface * const iface,
-	gpointer iface_data
+	gpointer const iface_data
 ) {
 
 	iface->get_file_items = nautilus___REPL_LOWERCASE_PACKAGENAME___get_file_items;
@@ -176,7 +168,19 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___menu_provider_iface_init (
 }
 
 
-static void nautilus___REPL_LOWERCASE_PACKAGENAME___register_type (GTypeModule * const module) {
+static void nautilus___REPL_LOWERCASE_PACKAGENAME___class_init (
+	Nautilus__REPL_TITLECASE_PACKAGENAME__Class * const nautilus___REPL_LOWERCASE_PACKAGENAME___class,
+	gpointer class_data
+) {
+
+	parent_class = g_type_class_peek_parent(nautilus___REPL_LOWERCASE_PACKAGENAME___class);
+
+}
+
+
+static void nautilus___REPL_LOWERCASE_PACKAGENAME___register_type (
+	GTypeModule * const module
+) {
 
 	static const GTypeInfo info = {
 		sizeof(Nautilus__REPL_TITLECASE_PACKAGENAME__Class),
@@ -188,6 +192,7 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___register_type (GTypeModule *
 		sizeof(Nautilus__REPL_TITLECASE_PACKAGENAME__),
 		0,
 		(GInstanceInitFunc) NULL,
+		(GTypeValueTable * ) NULL
 	};
 
 	static const GInterfaceInfo menu_provider_iface_info = {
@@ -214,12 +219,18 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___register_type (GTypeModule *
 }
 
 
-void nautilus_module_initialize (GTypeModule  * const module) {
+GType nautilus___REPL_LOWERCASE_PACKAGENAME___get_type (void) {
 
-	#ifdef ENABLE_NLS
-	bindtextdomain(GETTEXT_PACKAGE, NAUTILUS___REPL_UPPERCASE_PACKAGENAME___LOCALEDIR);
-	#endif
+	return nautilus___REPL_LOWERCASE_PACKAGENAME___type;
 
+}
+
+
+void nautilus_module_initialize (
+	GTypeModule * const module
+) {
+
+	I18N_INIT();
 	nautilus___REPL_LOWERCASE_PACKAGENAME___register_type(module);
 	*provider_types = nautilus___REPL_LOWERCASE_PACKAGENAME___get_type();
 
@@ -233,7 +244,10 @@ void nautilus_module_shutdown (void) {
 }
 
 
-void nautilus_module_list_types (const GType ** types, int * num_types) {
+void nautilus_module_list_types (
+	const GType ** const types,
+	int * const num_types
+) {
 
 	*types = provider_types;
 	*num_types = G_N_ELEMENTS(provider_types);
