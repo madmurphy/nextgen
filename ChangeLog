@@ -2,6 +2,15 @@ Change Log
 ==========
 
 
+## 0.1.8
+
+Changes:
+
+* Code review in the extension template
+* A small bug in the template's build system that caused `make distcheck` not
+  to function properly has been fixed
+
+
 ## 0.1.7
 
 Changes:

@@ -32,6 +32,15 @@
 #include <glib.h>
 #include <nautilus-extension.h>
 
+
+
+/*\
+|*|
+|*| BUILD SETTINGS
+|*|
+\*/
+
+
 #ifdef ENABLE_NLS
 #include <glib/gi18n-lib.h>
 #define I18N_INIT() \
@@ -45,7 +54,7 @@
 
 /*\
 |*|
-|*|	GLOBAL TYPES AND VARIABLES
+|*| GLOBAL TYPES AND VARIABLES
 |*|
 \*/
 
@@ -66,7 +75,7 @@ static GObjectClass * parent_class;
 
 /*\
 |*|
-|*|	FUNCTIONS
+|*| FUNCTIONS
 |*|
 \*/
 
@@ -83,15 +92,20 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___helloworld (
 
 	*/
 
+	gchar * file_uri;
+
 	GList * const file_selection = g_object_get_data(
-		(GObject *) menu_item,
+		G_OBJECT(menu_item),
 		"nautilus___REPL_LOWERCASE_PACKAGENAME___files"
 	);
 
 	for (GList * iter = file_selection; iter; iter = iter->next) {
 
-		/*  Launch Nautilus from a terminal (`nautilus -q && nautilus`) to see this  */
-		printf(_("Doing something with %s ...\n"), nautilus_file_info_get_uri(NAUTILUS_FILE_INFO(iter->data)));
+		/*  Launch Nautilus from a terminal to see this  */
+
+		file_uri = nautilus_file_info_get_uri(NAUTILUS_FILE_INFO(iter->data));
+		printf(_("Doing something with %s ...\n"), file_uri);
+		g_free(file_uri);
 
 	}
 
@@ -147,7 +161,7 @@ static GList * nautilus___REPL_LOWERCASE_PACKAGENAME___get_file_items (
 	);
 
 	g_object_set_data_full(
-		(GObject *) menu_item,
+		G_OBJECT(menu_item),
 		"nautilus___REPL_LOWERCASE_PACKAGENAME___files",
 		nautilus_file_info_list_copy(file_selection),
 		(GDestroyNotify) nautilus_file_info_list_free
@@ -192,7 +206,7 @@ static void nautilus___REPL_LOWERCASE_PACKAGENAME___register_type (
 		sizeof(Nautilus__REPL_TITLECASE_PACKAGENAME__),
 		0,
 		(GInstanceInitFunc) NULL,
-		(GTypeValueTable * ) NULL
+		(GTypeValueTable *) NULL
 	};
 
 	static const GInterfaceInfo menu_provider_iface_info = {
@@ -226,17 +240,6 @@ GType nautilus___REPL_LOWERCASE_PACKAGENAME___get_type (void) {
 }
 
 
-void nautilus_module_initialize (
-	GTypeModule * const module
-) {
-
-	I18N_INIT();
-	nautilus___REPL_LOWERCASE_PACKAGENAME___register_type(module);
-	*provider_types = nautilus___REPL_LOWERCASE_PACKAGENAME___get_type();
-
-}
-
-
 void nautilus_module_shutdown (void) {
 
 	/*  Any module-specific shutdown  */
@@ -251,6 +254,17 @@ void nautilus_module_list_types (
 
 	*types = provider_types;
 	*num_types = G_N_ELEMENTS(provider_types);
+
+}
+
+
+void nautilus_module_initialize (
+	GTypeModule * const module
+) {
+
+	I18N_INIT();
+	nautilus___REPL_LOWERCASE_PACKAGENAME___register_type(module);
+	*provider_types = nautilus___REPL_LOWERCASE_PACKAGENAME___get_type();
 
 }
 
