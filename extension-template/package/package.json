@@ -1,13 +1,13 @@
 {
-	"name": "nautilus-__REPL_IDCASE_PACKAGENAME__",
+	"name": "nautilus-__REPL_IDCASE_EXTNAME__",
 	"version": "__REPL_LONG_PACKAGE_VERSION__",
 	"description": "__REPL_PACKAGE_DESCRIPTION__",
-	"homepage": "https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__",
+	"homepage": "https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__",
 	"author": "__REPL_AUTHOR_NAME__",
 	"license": "GPL-3.0-or-later",
 	"repository": {
 		"type": "git",
-		"url": "https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__.git"
+		"url": "https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__.git"
 	},
 	"dependencies": {
 		"glib2": "*",
@@ -18,10 +18,10 @@
 		"intltool": "*"
 	},
 	"src": [
-		"src/nautilus-__REPL_IDCASE_PACKAGENAME__.c"
+		"src/nautilus-__REPL_IDCASE_EXTNAME__.c"
 	],
 	"bugs": {
-		"url": "https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__/issues",
+		"url": "https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__/issues",
 		"email" : "__REPL_AUTHOR_EMAIL__"
 	},
 	"keywords": [

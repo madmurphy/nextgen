@@ -2,16 +2,22 @@ NEWS
 ====
 
 
-0.1.3
------
+## 0.2.0
 
-Changes:
+* So far this script has been able only to set up a blank extension whose goal
+  was that of adding an item to Nautilus' file selection menu; from now on it
+  will be possible to set up the following features as well: add an item to the
+  background menu, add a page to the property window, add a child to the
+  location widget, add a column to the list view, intervene on the displayed
+  files
+
+
+## 0.1.3
 
 * Adopted GNU Autotools for the script
 
 
-0.1.0
------
+## 0.1.0
 
 **NExtGen** has been published.
 

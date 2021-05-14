@@ -8,17 +8,17 @@ dnl  ***************************************************************************
 
 AC_PREREQ([2.69])
 
-AC_INIT([nautilus-__REPL_IDCASE_PACKAGENAME__],
+AC_INIT([__REPL_PACKAGE_NAME__],
 	[__REPL_LONG_PACKAGE_VERSION__],
 	[__REPL_AUTHOR_EMAIL__],
-	[nautilus-__REPL_IDCASE_PACKAGENAME__],
-	[https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__])
+	[nautilus-__REPL_IDCASE_EXTNAME__],
+	[https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__])
 
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_CONFIG_AUX_DIR([build-aux])
 
-AC_CONFIG_SRCDIR([src/nautilus-__REPL_IDCASE_PACKAGENAME__.c])
+AC_CONFIG_SRCDIR([src/nautilus-__REPL_IDCASE_EXTNAME__.c])
 
 AC_CONFIG_HEADERS([config.h])
 
@@ -32,7 +32,7 @@ AM_SILENT_RULES([yes])
 
 AC_PROG_CC
 
-PKG_CHECK_MODULES([NAUTILUS___REPL_UPPERCASE_PACKAGENAME__], [glib-2.0 libnautilus-extension])
+PKG_CHECK_MODULES([NAUTILUS___REPL_UPPERCASE_EXTNAME__], [glib-2.0 libnautilus-extension])
 
 AC_CHECK_PROG([HAVE_PKGCONFIG], [pkg-config], [yes], [no])
 
@@ -54,7 +54,7 @@ AM_COND_IF([NLS_ENABLED], [
 	AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],
 		["${GETTEXT_PACKAGE}"], [GETTEXT package name])
 	AM_GLIB_GNU_GETTEXT
-	AM_GLIB_DEFINE_LOCALEDIR([NAUTILUS___REPL_UPPERCASE_PACKAGENAME___LOCALEDIR])
+	AM_GLIB_DEFINE_LOCALEDIR([NAUTILUS___REPL_UPPERCASE_EXTNAME___LOCALEDIR])
 ])
 
 

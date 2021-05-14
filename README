@@ -3,13 +3,11 @@ NExtGen
 
 _Nautilus Extension Generator_
 
-**NExtGen** is a Bash script that lets you easily set up a new extension
-project for GNOME's Nautilus file manager.
+**NExtGen** is an interactive Bash script that lets you easily set up a new
+extension project for **GNOME Files** (formerly **Nautilus**).
 
 All you have to do is to launch the `nextgen.sh` script and answer a few
 questions. For any issue, [drop me a message][1].
-
-Good luck! ;)
 
 
 Installation
@@ -32,7 +30,7 @@ is required).
 Free software
 -------------
 
-This program is free software. You can redistribute it and/or modify it under
+**NExtGen** is free software. You can redistribute it and/or modify it under
 the terms of the GPL license version 3 or any later version. See [COPYING][2]
 for details.
 

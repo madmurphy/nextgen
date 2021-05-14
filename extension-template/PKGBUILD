@@ -1,11 +1,11 @@
 # Maintainer: __REPL_AUTHOR_NAME__ <__REPL_AUTHOR_EMAIL__>
 
-pkgname='nautilus-__REPL_IDCASE_PACKAGENAME__'
+pkgname='nautilus-__REPL_IDCASE_EXTNAME__'
 pkgver='__REPL_LONG_PACKAGE_VERSION__'
 pkgrel=1
 pkgdesc='__REPL_PACKAGE_DESCRIPTION__'
 arch=('i686' 'x86_64')
-url='https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_PACKAGENAME__'
+url='https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__'
 license=('GPL')
 depends=('glib2' 'libnautilus-extension')
 makedepends=('intltool')
@@ -14,31 +14,18 @@ source=("${pkgname}-${pkgver}.tar.gz")
 sha256sums=('__REPL_PACKAGE_SHA256SUMS__')
 
 prepare() {
-
 	cd "${srcdir}/${pkgname}-${pkgver}"
 	./bootstrap --noconfigure
-
 }
 
 build() {
-
 	cd "${srcdir}/${pkgname}-${pkgver}"
 	./configure --prefix=/usr
 	make
-
-}
-
-check() {
-
-	cd "${srcdir}/${pkgname}-${pkgver}"
-	make check
-
 }
 
 package() {
-
 	cd "${srcdir}/${pkgname}-${pkgver}"
 	make DESTDIR="${pkgdir}" install
-
 }
 
