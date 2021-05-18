@@ -247,13 +247,13 @@ _show_summary_() {
 	IFS=',' read -ra _TODO_ARR_ <<< "${_NEW_TODO_}"
 	for _TODO_MEMB_ in "${_TODO_ARR_[@]}"; do
 		case "${_TODO_MEMB_}" in
-			*0*) echo '**everything**'; break ;;
-			*1*) echo '- add an item to the file selection menu' ;;
-			*2*) echo '- add an item to the background menu' ;;
-			*3*) echo '- add a page to the property window' ;;
-			*4*) echo '- add a child to the location widget' ;;
-			*5*) echo '- add a column to the list view' ;;
-			*6*) echo '- intervene on the displayed files' ;;
+			*0*) echo '  **everything**'; break ;;
+			*1*) echo '  - add an item to the file selection menu' ;;
+			*2*) echo '  - add an item to the background menu' ;;
+			*3*) echo '  - add a page to the property window' ;;
+			*4*) echo '  - add a child to the location widget' ;;
+			*5*) echo '  - add a column to the list view' ;;
+			*6*) echo '  - intervene on the displayed files' ;;
 		esac
 	done
 
@@ -280,6 +280,21 @@ if [[ "${_DONTASK_}" -ne 0 ]]; then
 	[[ "${#_REALARGS_[@]}" -lt 6 ]] && echo "See ${0##*/} --help for further options."
 	echo
 	_show_summary_
+
+else
+
+	echo
+	echo '                     _   _ _____      _    ____'
+	echo '                    | \ | | ____|_  _| |_ / ___| ___ _ __'
+	echo '                    |  \| |  _| \ \/ / __| |  _ / _ \ '_ \'
+	echo '                    | |\  | |___ >  <| |_| |_| |  __/ | | |'
+	echo '                    |_| \_|_____/_/\_\\__|\____|\___|_| |_|'
+	echo
+	echo '                         Nautilus Extension Generator'
+	echo
+	echo
+	echo 'Please answer a few questions about your planned extension project for GNOME'
+	echo 'Files.'
 
 fi
 
@@ -434,7 +449,7 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 	while [[ "${_GOOD_ANSWER_}" -eq 0 ]]; do
 
 		echo
-		read -e -p 'Author'\''s public username (leave empty to exit):'$'\n' -i "${_NEW_PKGUSR_}" _NEW_PKGUSR_
+		read -e -p '==> Author'\''s public username (leave empty to exit):'$'\n' -i "${_NEW_PKGUSR_}" _NEW_PKGUSR_
 		[[ "${_NEW_PKGUSR_}" =~ ${_RE_BLANK_} ]] && exit 0
 
 		if [[ "${_NEW_PKGUSR_}" =~ ${RE_USERNAME_FORBID} ]]; then
@@ -458,7 +473,7 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 	while [[ "${_GOOD_ANSWER_}" -eq 0 ]]; do
 
 		echo
-		read -e -p 'Features to set up (leave empty to exit):'$'\n'$'\n''0 = everything'$'\n''1 = add an item to the file selection menu'$'\n''2 = add an item to the background menu'$'\n''3 = add a page to the property window'$'\n''4 = add a child to the location widget'$'\n''5 = add a column to the list view'$'\n''6 = intervene on the displayed files'$'\n'$'\n''Example: `2, 3, 6`'$'\n' -i "${_NEW_TODO_}" _NEW_TODO_
+		read -e -p '==> Features to set up (leave empty to exit):'$'\n'$'\n''  0 = everything'$'\n''  1 = add an item to the file selection menu'$'\n''  2 = add an item to the background menu'$'\n''  3 = add a page to the property window'$'\n''  4 = add a child to the location widget'$'\n''  5 = add a column to the list view'$'\n''  6 = intervene on the displayed files'$'\n'$'\n''Example: `2, 3, 6`'$'\n' -i "${_NEW_TODO_}" _NEW_TODO_
 		[[ "${_NEW_TODO_}" =~ ${_RE_BLANK_} ]] && exit 0
 
 		if [[ "${_NEW_TODO_}" =~ ${RE_TODO_ALLOW} ]]; then

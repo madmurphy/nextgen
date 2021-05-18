@@ -244,7 +244,7 @@ static GList * nautilus___REPL_LOWERCASE_EXTNAME___get_background_items (
 
 static NautilusOperationResult nautilus___REPL_LOWERCASE_EXTNAME___update_file_info (
 	NautilusInfoProvider * const info_provider,
-	NautilusFileInfo * const file,
+	NautilusFileInfo * const nautilus_file,
 	GClosure * const update_complete,
 	NautilusOperationHandle ** const operation_handle
 ) {
@@ -258,7 +258,7 @@ static NautilusOperationResult nautilus___REPL_LOWERCASE_EXTNAME___update_file_i
 	"favorite" emblem to all files modified in the last hour...
 	*/
 
-	GFile * location = nautilus_file_info_get_location(file);
+	GFile * location = nautilus_file_info_get_location(nautilus_file);
 
 	GFileInfo * const finfo = g_file_query_info(
 		location,
@@ -283,7 +283,7 @@ static NautilusOperationResult nautilus___REPL_LOWERCASE_EXTNAME___update_file_i
 		) + 3600 > (guint64) time(NULL)
 	) {
 
-		nautilus_file_info_add_emblem(file, "emblem-favorite");
+		nautilus_file_info_add_emblem(nautilus_file, "emblem-favorite");
 
 	}
 
@@ -298,7 +298,7 @@ static NautilusOperationResult nautilus___REPL_LOWERCASE_EXTNAME___update_file_i
 	*/
 
     nautilus_file_info_add_string_attribute(
-		file,
+		nautilus_file,
 		"Nautilus__REPL_TITLECASE_EXTNAME__::my_attribute",
 		"Hello world"
 	);
