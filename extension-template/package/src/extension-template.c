@@ -44,7 +44,7 @@
 #ifdef ENABLE_NLS
 #include <glib/gi18n-lib.h>
 #define I18N_INIT() \
-	bindtextdomain(GETTEXT_PACKAGE, NAUTILUS___REPL_UPPERCASE_EXTNAME___LOCALEDIR);
+	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
 #else
 #define _(STRING) ((char * ) STRING)
 #define I18N_INIT()
@@ -105,7 +105,7 @@ static void on_do_stuff_selected_menuitem_activate (
 		/*  Launch Nautilus from a terminal to see this  */
 
 		file_uri = nautilus_file_info_get_uri(NAUTILUS_FILE_INFO(iter->data));
-		printf(_("Doing something with %s ...\n"), file_uri);
+		g_message(_("Doing something with %s ..."), file_uri);
 		g_free(file_uri);
 
 	}
@@ -136,7 +136,7 @@ static void on_do_stuff_background_menuitem_activate (
 
 
 	file_uri = nautilus_file_info_get_uri(background_item);
-	printf(_("Doing something with background item %s ...\n"), file_uri);
+	g_message(_("Doing something with background item %s ..."), file_uri);
 	g_free(file_uri);
 
 }

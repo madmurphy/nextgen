@@ -2,7 +2,17 @@ Change Log
 ==========
 
 
-## 0.2.1
+## 0.3.0 (2021-05-27)
+
+Changes:
+
+* Internationalization of the generated extensions does not depend on **XDG
+  intltool** anymore, but only on **GNU gettext**
+* Use of `fprintf()` for message logging in the generated extensions has been
+  dropped in favor of GLib's `g_message()`
+
+
+## 0.2.1 (2021-05-18)
 
 Changes:
 
@@ -10,7 +20,7 @@ Changes:
 * Code review in the extension template
 
 
-## 0.2.0
+## 0.2.0 (2021-05-14)
 
 Changes:
 
@@ -23,7 +33,7 @@ Changes:
 * General code review and partial rewrite of the script
 
 
-## 0.1.8
+## 0.1.8 (2021-05-12)
 
 Changes:
 
@@ -32,28 +42,28 @@ Changes:
   to function properly has been fixed
 
 
-## 0.1.7
+## 0.1.7 (2021-05-03)
 
 Changes:
 
 * Code review in the build system and the extension template (cont'd)
 
 
-## 0.1.6
+## 0.1.6 (2021-04-25)
 
 Changes:
 
 * Code review in the build system and the extension template
 
 
-## 0.1.5
+## 0.1.5 (2020-10-20)
 
 Changes:
 
 * Use `--disable-static` as the extension's default `configure` option
 
 
-## 0.1.4
+## 0.1.4 (2020-10-09)
 
 Changes:
 
@@ -61,28 +71,28 @@ Changes:
 * Use https://gitlab.gnome.org/madmurphy/nextgen as main repository
 
 
-## 0.1.3
+## 0.1.3 (2020-05-19)
 
 Changes:
 
 * Adopted GNU Autotools for installing the script
 
 
-## 0.1.2
+## 0.1.2 (2020-02-17)
 
 Changes:
 
 * Updated build environment of extension template (cont'd)
 
 
-## 0.1.1
+## 0.1.1 (2019-09-16)
 
 Changes:
 
 * Updated build environment of extension template
 
 
-## 0.1.0
+## 0.1.0 (2019-09-13)
 
 **NExtGen** has been published.
 

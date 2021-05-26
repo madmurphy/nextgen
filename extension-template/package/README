@@ -4,10 +4,61 @@ __REPL_TITLE_UNDERLINE__
 __REPL_PACKAGE_DESCRIPTION__
 
 
+Get involved
+------------
+
+The package needs help with internationalization. If a translation into your
+language is missing and you wish to get involved, here is what to do.
+
+Let's say you want to create a Dutch translation of **__REPL_PACKAGE_NAME__**
+(`nl`). First thing to do is to make sure that **GNU Autotools** and **GNU
+gettext** are installed on your system. Then clone this repository and launch
+the following commands:
+
+``` sh
+./bootstrap
+make -C po nautilus-__REPL_IDCASE_EXTNAME__.pot
+(cd po && msginit -l nl)
+./bootstrap --clean
+```
+
+Now edit the `po/LINGUAS` file and add a new line containing the abbreviated
+name of the new language (`nl`).
+
+Finally, open the `po/nl.po` file and translate the strings present. All you
+have to do now is to commit your changes.
+
+For any issue, [drop a message][1].
+
+
+Installation
+------------
+
+On most Unix-like systems, you should be able to install this package using the
+following common steps:
+
+``` sh
+./configure
+make
+make install-strip
+```
+
+If the `strip` utility is not available on your machine, use `make install`
+instead (it will produce larger binaries).
+
+If the `configure` script is missing from your package you need to generate it
+by running the `bootstrap` script. By default, `bootstrap` will also run the
+`configure` script immediately after having generated it, so you may type the
+`make` command directly after `bootstrap`. To list different options use
+`./bootstrap --help`.
+
+For further information, see [INSTALL][2].
+
+
 NExtGen
 -------
 
-This extension has been created using [NExtGen][1] Nautilus extension
+This extension has been created using [NExtGen][3] Nautilus extension
 generator.
 
 
@@ -16,9 +67,11 @@ Free software
 
 **__REPL_PACKAGE_NAME__** is free software. You can redistribute it and/or modify
 it under the terms of the GPL license version 3 or any later version. See
-[COPYING][2] for details.
+[COPYING][4] for details.
 
 
-  [1]: https://gitlab.gnome.org/madmurphy/nextgen
-  [2]: COPYING
+  [1]: https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__/issues
+  [2]: INSTALL
+  [3]: https://gitlab.gnome.org/madmurphy/nextgen
+  [4]: COPYING
 

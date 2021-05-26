@@ -2,6 +2,12 @@ NEWS
 ====
 
 
+## 0.3.0
+
+* Internationalization of the extensions generated does not depend on **XDG
+  intltool** anymore, but only on **GNU gettext**
+
+
 ## 0.2.0
 
 * So far this script has been able only to set up a blank extension whose goal

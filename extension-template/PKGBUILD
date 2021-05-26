@@ -8,7 +8,6 @@ arch=('i686' 'x86_64')
 url='https://gitlab.gnome.org/__REPL_AUTHOR_NICKNAME__/nautilus-__REPL_IDCASE_EXTNAME__'
 license=('GPL')
 depends=('glib2' 'libnautilus-extension')
-makedepends=('intltool')
 conflicts=("${pkgname}-git" "${pkgname}-bin")
 source=("${pkgname}-${pkgver}.tar.gz")
 sha256sums=('__REPL_PACKAGE_SHA256SUMS__')

@@ -14,8 +14,8 @@
 		"libnautilus-extension": "*",
 	},
 	"devDependencies": {
-		"pkgconf": "*",
-		"intltool": "*"
+		"gettext": "*",
+		"pkgconf": "*"
 	},
 	"src": [
 		"src/nautilus-__REPL_IDCASE_EXTNAME__.c"
