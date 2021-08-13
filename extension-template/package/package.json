@@ -14,7 +14,7 @@
 		"libnautilus-extension": "*",
 	},
 	"devDependencies": {
-		"gettext": "*",
+		"gettext": ">=0.19",
 		"pkgconf": "*"
 	},
 	"src": [
@@ -26,7 +26,10 @@
 	},
 	"keywords": [
 		"c",
+		"desktop",
+		"desktop-environment",
 		"gnome",
+		"gnu",
 		"nautilus",
 		"nautilus-extension"
 	]

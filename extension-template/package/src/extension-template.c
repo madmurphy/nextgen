@@ -380,14 +380,40 @@ static GtkWidget * nautilus___REPL_LOWERCASE_EXTNAME___get_widget (
 	GtkWidget * const nautilus_window
 ) {
 
-	/*
-	We are going to place a simple `GtkLabel` as a direct child of the location
-	widget, but in real life you will want to append a more composite content...
-	*/
-	GtkWidget * my_content = gtk_label_new("Hello world!\n");
+	/*  We are going to place a `GtkInfoBar` into the location widget  */
 
-	gtk_widget_show(my_content);
-	return my_content;
+	GtkWidget
+		* title_label = gtk_label_new(NULL),
+		* message_label = gtk_label_new("This is an example message"),
+		* location_vbox = gtk_box_new(
+			GTK_ORIENTATION_VERTICAL,
+			0
+		),
+		* location_infobar = gtk_info_bar_new_with_buttons(
+			"This is an example button",
+			NULL
+		);
+
+	gtk_label_set_markup(
+		GTK_LABEL(title_label),
+		"<b>This is an example title</b>"
+	);
+
+	gtk_label_set_xalign(GTK_LABEL(title_label), 0.0);
+	gtk_label_set_xalign(GTK_LABEL(message_label), 0.0);
+
+	gtk_box_pack_start(GTK_BOX(location_vbox), title_label, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(location_vbox), message_label, TRUE, TRUE, 0);
+
+	gtk_container_add(
+		GTK_CONTAINER(
+			gtk_info_bar_get_content_area(GTK_INFO_BAR(location_infobar))
+		),
+		location_vbox
+	);
+
+	gtk_widget_show_all(location_infobar);
+	return location_infobar;
 
 }
 /*@@@@@@@@@@@@@@@@ !END_EXCEPTION(FEATURE_LOCATION_WIDGET)! @@@@@@@@@@@@@@@@@*/

@@ -47,7 +47,7 @@ dnl  **************************************************************************
 
 AM_GNU_GETTEXT([external])
 
-AM_GNU_GETTEXT_VERSION([0.21])
+AM_GNU_GETTEXT_VERSION([0.19])
 
 AM_CONDITIONAL([NLS_ENABLED], [test "x${USE_NLS}" != xno])
 

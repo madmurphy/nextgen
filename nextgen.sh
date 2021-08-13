@@ -326,7 +326,7 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 		else
 
 			echo
-			echo 'Project name can contain only lower case letters, numbers and hyphens and must'
+			echo 'Project name may contain only lower case letters, numbers and hyphens and must'
 			echo 'end with a letter. The current choice will be automatically transformed into'
 			read -p "\"nautilus-${_NEW_EXTNAME_}\". Do you wish to proceed? (y/N/q) " -n1 _ITER_
 			[[ "${_ITER_}" == "${EOF}" ]] || echo
@@ -535,7 +535,7 @@ cp "${_SCRIPT_PATH_}/extension-template/PKGBUILD" "${_TMPDIR_}/PKGBUILD"
 mv "${_TMPDIR_}/${_PKGTARSTRING_}/src/extension-template.c" "${_TMPDIR_}/${_PKGTARSTRING_}/src/nautilus-${_NEW_EXTNAME_}.c"
 
 _FINAL_SED_SCRIPT_="
-	"$(_create_exception_sed_script_)"
+	$(_create_exception_sed_script_)
 	s|__REPL_IDCASE_EXTNAME__|${_NEW_EXTNAME_}|g;
 	s|__REPL_AUTHOR_NAME__|${_NEW_PKGAUTH_}|g;
 	s|__REPL_AUTHOR_EMAIL__|${_NEW_PKGEMAIL_}|g;

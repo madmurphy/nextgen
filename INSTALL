@@ -5,10 +5,8 @@ The `nextgen.sh` script does not need to be installed in order to function. If
 you wish anyway to have a copy of it permanently installed on your machine,
 launch:
 
-``` sh
-./configure
-make install
-```
+    ./configure
+    make install
 
 If the `configure` script is missing you will need to generate it by launching
 `autoreconf -i` from the top level directory of the package (**GNU Autotools**

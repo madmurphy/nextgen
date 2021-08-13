@@ -35,6 +35,7 @@ dist_pkgtempl_SCRIPTS = \
 pkgtemplpodir = $(pkgtempldir)/po
 dist_pkgtemplpo_DATA = \
 	extension-template/package/po/LINGUAS \
+	extension-template/package/po/Makevars \
 	extension-template/package/po/POTFILES.in
 
 pkgtemplsrcdir = $(pkgtempldir)/src

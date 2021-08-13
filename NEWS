@@ -2,6 +2,12 @@ NEWS
 ====
 
 
+## 0.3.1
+
+* A more standard content has been chosen for the location widget
+
+
+
 ## 0.3.0
 
 * Internationalization of the extensions generated does not depend on **XDG
