@@ -1,6 +1,6 @@
 {
 	"name": "NExtGen",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "A small bash script that lets you easily set up a new extension project for GNOME Files",
 	"homepage": "https://gitlab.gnome.org/madmurphy/nextgen",
 	"author": "madmurphy333@gmail.com",

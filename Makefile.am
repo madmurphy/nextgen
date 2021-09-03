@@ -63,7 +63,7 @@ _bootstrapclean_files_ = \
 install-exec-hook:
 	$(MKDIR_P) '$(DESTDIR)$(bindir)' && rm -f \
 	'$(DESTDIR)$(bindir)/nextgen' && $(LN_S) \
-	'$(pkgdatadir)/nextgen.sh' '$(DESTDIR)$(bindir)/nextgen'
+	'$(pkgdatadir)/nextgen.sh' '$(DESTDIR)$(bindir)/nextgen';
 
 install-data-hook:
 	(cd '$(DESTDIR)$(pkgtempldir)' && $(LN_S) 'README' \
@@ -71,12 +71,12 @@ install-data-hook:
 
 uninstall-local:
 	-rm -rf '$(DESTDIR)$(pkgdatadir)' '$(DESTDIR)$(docdir)';
-	-rm -f '$(DESTDIR)$(bindir)/nextgen'
+	-rm -f '$(DESTDIR)$(bindir)/nextgen';
 
 
 # Novel targets
 
-# Make the source directory depend on Autotools and a `bootstrap` script
+# Make the source directory depend on Autotools and `autoreconf`
 .PHONY: bootstrap-clean
 bootstrap-clean: maintainer-clean
 	-rm -rf $(_bootstrapclean_dirs_) && rm -f $(_bootstrapclean_files_) \
