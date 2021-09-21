@@ -345,7 +345,7 @@ static GList * nautilus___REPL_LOWERCASE_EXTNAME___get_pages (
 
 	*/
 
-	GtkWidget * my_page_label = gtk_label_new_with_mnemonic(
+	GtkWidget * const my_page_label = gtk_label_new_with_mnemonic(
 		_("_My property page")
 	);
 
@@ -383,13 +383,13 @@ static GtkWidget * nautilus___REPL_LOWERCASE_EXTNAME___get_widget (
 	/*  We are going to place a `GtkInfoBar` into the location widget  */
 
 	GtkWidget
-		* title_label = gtk_label_new(NULL),
-		* message_label = gtk_label_new("This is an example message"),
-		* location_vbox = gtk_box_new(
+		* const title_label = gtk_label_new(NULL),
+		* const message_label = gtk_label_new("This is an example message"),
+		* const location_vbox = gtk_box_new(
 			GTK_ORIENTATION_VERTICAL,
 			0
 		),
-		* location_infobar = gtk_info_bar_new_with_buttons(
+		* const location_infobar = gtk_info_bar_new_with_buttons(
 			"This is an example button",
 			NULL
 		);

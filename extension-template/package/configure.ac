@@ -33,12 +33,12 @@ AC_PROG_CC
 
 AC_PROG_GREP
 
-PKG_CHECK_MODULES([NAUTILUS___REPL_UPPERCASE_EXTNAME__], [glib-2.0 libnautilus-extension])
-
 AC_CHECK_PROG([HAVE_PKGCONFIG], [pkg-config], [yes], [no])
 
 AS_IF([test "x${HAVE_PKGCONFIG}" = xno],
 	[AC_MSG_ERROR([you need to have pkgconfig installed!])])
+
+PKG_CHECK_MODULES([NAUTILUS___REPL_UPPERCASE_EXTNAME__], [glib-2.0 libnautilus-extension])
 
 
 dnl  **************************************************************************

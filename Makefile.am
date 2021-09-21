@@ -55,6 +55,7 @@ _bootstrapclean_files_ = \
 	'aclocal.m4' \
 	'config'.* \
 	'configure' \
+	'configure~' \
 	`$(FIND) -L . -type f -name 'Makefile.in'`
 
 
