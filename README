@@ -6,8 +6,16 @@ _Nautilus Extension Generator_
 **NExtGen** is an interactive Bash script that lets you easily set up a new
 extension project for **GNOME Files**.
 
-All you have to do is to launch the `nextgen.sh` script and answer a few
-questions. For any issue, [drop a message][1].
+All you have to do is to launch the `nextgen.sh` script (without arguments) and
+answer a few questions. If you want to run the script in unattended mode (`-u`) you
+can edit the following template command:
+
+``` sh
+./nextgen.sh -u foo-bar 'A sample extension for GNOME Files' 0.1.0 'John Doe' \
+	john.doe 'john.doe@example.org' '1, 2, 5'
+```
+
+For any issue, please [drop a message][1].
 
 
 Installation

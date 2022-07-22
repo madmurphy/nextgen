@@ -7,13 +7,13 @@ AM_CPPFLAGS = \
 	"-DG_LOG_DOMAIN=\"Nautilus__REPL_TITLECASE_EXTNAME__\""
 
 AM_CFLAGS = \
-	-Wall\
+	-Wall \
+	-Wextra \
 	-g \
 	-pedantic \
 	$(WARN_CFLAGS) \
 	$(NAUTILUS_CFLAGS) \
-	$(GLIB_CFLAGS) \
-	$(NAUTILUS___REPL_UPPERCASE_EXTNAME___CFLAGS)
+	$(GLIB_CFLAGS)
 
 nautilus_extensiondir = $(NAUTILUS_EXTENSION_DIR)
 
@@ -22,6 +22,9 @@ nautilus_extension_LTLIBRARIES = \
 
 libnautilus___REPL_LOWERCASE_EXTNAME___la_SOURCES = \
 	nautilus-__REPL_IDCASE_EXTNAME__.c
+
+libnautilus___REPL_LOWERCASE_EXTNAME___la_CFLAGS = \
+	$(NAUTILUS___REPL_UPPERCASE_EXTNAME___CFLAGS)
 
 libnautilus___REPL_LOWERCASE_EXTNAME___la_LDFLAGS = \
 	-module \

@@ -2,6 +2,16 @@ Change Log
 ==========
 
 
+## 0.4.0 (2022-07-22)
+
+Changes:
+
+* The dot character (`.`) is now allowed in the author's public username
+* The order of e-mail and public username in the questionnaire has been swapped
+* The `-Wextra` option is now enabled by default in the extensions generated
+* Documentation
+
+
 ## 0.3.3 (2021-09-21)
 
 Changes:

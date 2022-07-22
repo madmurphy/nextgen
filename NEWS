@@ -2,6 +2,12 @@ NEWS
 ====
 
 
+## 0.4.0
+
+* The dot character (`.`) is now allowed in the author's public username
+* Documentation
+
+
 ## 0.3.1
 
 * A more standard content has been chosen for the location widget

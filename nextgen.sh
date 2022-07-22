@@ -26,6 +26,7 @@
 # General settings
 PROJECTS_DIR=~/'Nautilus-Projects'
 DEFAULT_DESCRIPTION='(DESCRIPTION TO BE WRITTEN LATER)'
+DEFAULT_DOMAIN="$(hostname).localdomain"
 
 # Regular expressions
 RE_DESCR_ALLOW='^[-a-zA-Z0-9 _\.,:;!?/%&=+()]+$'
@@ -34,7 +35,7 @@ RE_AUTHOR_FORBID='[^a-zA-Z0-9 ]'
 RE_TODO_ALLOW='^\s*([0-6]\s*,\s*)*[0-6]\s*$'
 # From https://stackoverflow.com/a/2138832
 RE_EMAIL_ALLOW="^[a-z0-9!#\$%&'*+/=?^_\`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_\`{|}~-]+)*@([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z0-9]([a-z0-9-]*[a-z0-9])?\$"
-RE_USERNAME_FORBID='[^a-zA-Z0-9_-]'
+RE_USERNAME_FORBID='[^a-zA-Z0-9._-]'
 _RE_BLANK_='^\s*$'
 
 # Other constants
@@ -79,10 +80,10 @@ for _ITER_; do
 			echo '        The initial version (MAJOR.MINOR.REVISION), usually "0.1.0"'
 			echo '    author'\''s full name [optional]'
 			echo '        The author'\''s full name'
-			echo '    author'\''s email [optional]'
-			echo '        The author'\''s email address'
 			echo '    author'\''s username [optional]'
 			echo '        A public username that identifies the author online'
+			echo '    author'\''s email [optional]'
+			echo '        The author'\''s email address'
 			echo '    extension features [optional]'
 			echo '        A comma-separated list of features to set up (0 = everything; 1 = add'
 			echo '        an item to the file selection menu; 2 = add an item to the background'
@@ -162,8 +163,8 @@ _NEW_EXTNAME_="$(_sanitize_extname_ "${_REALARGS_[0]}")"
 _NEW_PKGDESCR_="$([[ "${_REALARGS_[1]}" =~ ${_RE_BLANK_} ]] && [[ "${_DONTASK_}" -ne 0 ]] && echo "${DEFAULT_DESCRIPTION}" || echo "${_REALARGS_[1]}")"
 _NEW_PKGVER_="$([[ "${_REALARGS_[2]}" =~ ${_RE_BLANK_} ]] && echo '0.1.0' || echo "${_REALARGS_[2]}")"
 _NEW_PKGAUTH_="$([[ "${_REALARGS_[3]}" =~ ${_RE_BLANK_} ]] && getent passwd "${LOGNAME}" | cut -d: -f5 | cut -d, -f1 || _sanitize_authname_ "${_REALARGS_[3]}")"
-_NEW_PKGEMAIL_="$([[ "${_REALARGS_[4]}" =~ ${_RE_BLANK_} ]] && echo "${USER}@$(hostname).localdomain" || echo "${_REALARGS_[4]}")"
-_NEW_PKGUSR_="$([[ "${_REALARGS_[5]}" =~ ${_RE_BLANK_} ]] && echo "${USER}" || echo "${_REALARGS_[5]}")"
+_NEW_PKGUSR_="$([[ "${_REALARGS_[4]}" =~ ${_RE_BLANK_} ]] && echo "${USER}" || echo "${_REALARGS_[4]}")"
+_NEW_PKGEMAIL_="$([[ "${_REALARGS_[5]}" =~ ${_RE_BLANK_} ]] && echo "${_NEW_PKGUSR_}@${DEFAULT_DOMAIN}" || echo "${_REALARGS_[5]}")"
 _NEW_TODO_="$([[ "${_REALARGS_[6]}" =~ ${_RE_BLANK_} ]] && echo '1' || echo "${_REALARGS_[6]}")"
 
 echoerr() { echo "$@" 1>&2; }
@@ -265,8 +266,8 @@ if [[ "${_DONTASK_}" -ne 0 ]]; then
 	if [[ "${_NEW_PKGDESCR_}" =~ ${_RE_BLANK_} ]] || ! [[ "${_NEW_PKGDESCR_}" =~ ${RE_DESCR_ALLOW} ]]; then echo 'Bad extension description'; _DIE_=1; fi
 	if [[ "${_NEW_PKGVER_}" =~ ${_RE_BLANK_} ]] || ! [[ "${_NEW_PKGVER_}" =~ ${RE_VERSION_ALLOW} ]]; then echo 'Bad version number'; _DIE_=1; fi
 	if [[ "${_NEW_PKGAUTH_}" =~ ${_RE_BLANK_} ]] || [[ "${_NEW_PKGAUTH_}" =~ ${RE_AUTHOR_FORBID} ]]; then echo 'Bad author'\''s name'; _DIE_=1; fi
-	if [[ "${_NEW_PKGEMAIL_}" =~ ${_RE_BLANK_} ]] || ! [[ "${_NEW_PKGEMAIL_}" =~ ${RE_EMAIL_ALLOW} ]] ; then echo 'Bad e-mail address'; _DIE_=1; fi
 	if [[ "${_NEW_PKGUSR_}" =~ ${_RE_BLANK_} ]] || [[ "${_NEW_PKGUSR_}" =~ ${RE_USERNAME_FORBID} ]]; then echo 'Bad public username'; _DIE_=1; fi
+	if [[ "${_NEW_PKGEMAIL_}" =~ ${_RE_BLANK_} ]] || ! [[ "${_NEW_PKGEMAIL_}" =~ ${RE_EMAIL_ALLOW} ]] ; then echo 'Bad e-mail address'; _DIE_=1; fi
 	if [[ "${_NEW_TODO_}" =~ ${_RE_BLANK_} ]] || ! [[ "${_NEW_TODO_}" =~ ${RE_TODO_ALLOW} ]]; then echo 'Bad feature request list'; _DIE_=1; fi
 
 	if [[ "${_DIE_}" -ne 0 ]]; then
@@ -418,6 +419,31 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 	done
 
 
+	# Author's public username
+
+	_GOOD_ANSWER_=0
+
+	while [[ "${_GOOD_ANSWER_}" -eq 0 ]]; do
+
+		echo
+		read -e -p '==> Author'\''s public username (leave empty to exit):'$'\n' -i "${_NEW_PKGUSR_}" _NEW_PKGUSR_
+		[[ "${_NEW_PKGUSR_}" =~ ${_RE_BLANK_} ]] && exit 0
+
+		if [[ "${_NEW_PKGUSR_}" =~ ${RE_USERNAME_FORBID} ]]; then
+
+			echo
+			echo 'Invalid author name (alphanumeric, hyphen and underscore only allowed)'
+
+		else
+
+			_NEW_PKGEMAIL_="${_NEW_PKGUSR_}@${DEFAULT_DOMAIN}"
+			_GOOD_ANSWER_=1
+
+		fi
+
+	done
+
+
 	# Author's e-mail address
 
 	_GOOD_ANSWER_=0
@@ -436,30 +462,6 @@ while [[ "${_DONTASK_}" -eq 0 ]]; do
 
 			echo
 			echo 'Invalid e-mail address'
-
-		fi
-
-	done
-
-
-	# Author's public username
-
-	_GOOD_ANSWER_=0
-
-	while [[ "${_GOOD_ANSWER_}" -eq 0 ]]; do
-
-		echo
-		read -e -p '==> Author'\''s public username (leave empty to exit):'$'\n' -i "${_NEW_PKGUSR_}" _NEW_PKGUSR_
-		[[ "${_NEW_PKGUSR_}" =~ ${_RE_BLANK_} ]] && exit 0
-
-		if [[ "${_NEW_PKGUSR_}" =~ ${RE_USERNAME_FORBID} ]]; then
-
-			echo
-			echo 'Invalid author name (alphanumeric, hyphen and underscore only allowed)'
-
-		else
-
-			_GOOD_ANSWER_=1
 
 		fi
 
